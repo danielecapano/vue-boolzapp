@@ -75,6 +75,7 @@ section {
     padding: 0.5rem 1rem;
     gap: 1rem;
     background-color: var(--gray);
+    border-right: 1px solid var(--text-gray);
 }
 
 .avatar {
@@ -169,6 +170,7 @@ aside {
     background-color: var(--white);
     padding: 0.5rem 1rem;
     border-top: 1px solid var(--gray);
+    cursor: pointer;
 }
 
 .contact.active {
@@ -213,10 +215,11 @@ aside {
 .message {
     position: relative;
     background-color: #fff;
-    padding: 1.25rem 1rem;
+    padding: 0.5rem 0.5rem 1.5rem;
     font-size: 0.875rem;
     border-radius: 0.5rem;
     max-width: 300px;
+    min-width: 35px;
 }
 
 .message.sent {
@@ -228,7 +231,7 @@ aside {
 }
 
 .message-date {
-    font-size: 0.75rem;
+    font-size: 0.625rem;
     position: absolute;
     bottom: 0.25rem;
     right: 0.25rem;

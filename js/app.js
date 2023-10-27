@@ -167,12 +167,37 @@ createApp({
         },
       ],
       currentIndex: 0,
+      textMessage: "",
     };
   },
 
   methods: {
     selectContact(i) {
       this.currentIndex = i;
+    },
+    newMessage() {
+      const message = {
+        date: "10/01/2020 15:30:55",
+        message: this.textMessage,
+        status: "sent",
+      };
+
+      const receivedMessage = {
+        date: "10/01/2020 15:30:55",
+        message: this.textMessage,
+        status: "received",
+      };
+      this.contacts[this.currentIndex].messages.push(message);
+      this.textMessage = "";
+
+      setTimeout(() => {
+        const receivedMessage = {
+          date: "10/01/2020 15:30:55",
+          message: "ok",
+          status: "received",
+        };
+        this.contacts[this.currentIndex].messages.push(receivedMessage);
+      }, 1000);
     },
   },
 

@@ -100,28 +100,16 @@
                   {{ message.message }}
                   <span class="message-date">15:00</span>
                 </li>
-                <!-- <span class="message-date">15:00</span>
-                <li class="message recevied">
-                  Bene grazie! Stasera ci vediamo?
-                  <span class="message-date">15:00</span>
-                </li>
-                <li class="message send">
-                  Mi piacerebbe ma devo andare a fare la spesa
-                  <span class="message-date">15:00</span>
-                </li>
-                <li class="message recevied">
-                  Ciao bella
-                  <span class="message-date">15:00</span>
-                </li>
-                <li class="message send">
-                  Ok
-                  <span class="message-date">15:00</span>
-                </li> -->
               </ul>
             </div>
             <div class="new-message">
               <i class="fa-regular fa-face-smile"></i>
-              <input type="text" placeholder="Scrivi messaggio" />
+              <input
+                @keyup.enter="newMessage"
+                type="text"
+                placeholder="Scrivi messaggio"
+                v-model="textMessage"
+              />
               <i class="fa-solid fa-microphone"></i>
             </div>
           </div>
