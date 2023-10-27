@@ -52,7 +52,11 @@
                 ></span>
               </div>
               <ul class="contacts-list">
-                <li class="contact" v-for="(contact, index) in contacts">
+                <li
+                  :class="currentIndex === index ? 'contact active' : 'contact'"
+                  v-for="(contact, index) in contacts"
+                  @click="selectContact(index)"
+                >
                   <img
                     class="contact-avatar"
                     :src="contact.avatar"
@@ -64,68 +68,16 @@
                   </div>
                   <span class="date">12:00</span>
                 </li>
-
-                <!-- <li class="contact active">
-                  <img
-                    class="contact-avatar"
-                    src="./img/avatar_2.jpg"
-                    alt="image"
-                  />
-                  <div class="body">
-                    <p class="name">Michele</p>
-                    <p class="last-message">Ultimo messaggio inviato</p>
-                  </div>
-                  <span class="date">12:00</span>
-                </li>
-
-                <li class="contact">
-                  <img
-                    class="contact-avatar"
-                    src="./img/avatar_3.jpg"
-                    alt="image"
-                  />
-                  <div class="body">
-                    <p class="name">Michele</p>
-                    <p class="last-message">Ultimo messaggio inviato</p>
-                  </div>
-                  <span class="date">12:00</span>
-                </li>
-
-                <li class="contact">
-                  <img
-                    class="contact-avatar"
-                    src="./img/avatar_1.jpg"
-                    alt="image"
-                  />
-                  <div class="body">
-                    <p class="name">Michele</p>
-                    <p class="last-message">Ultimo messaggio inviato</p>
-                  </div>
-                  <span class="date">12:00</span>
-                </li>
-
-                <li class="contact">
-                  <img
-                    class="contact-avatar"
-                    src="./img/avatar_1.jpg"
-                    alt="image"
-                  />
-                  <div class="body">
-                    <p class="name">Michele</p>
-                    <p class="last-message">Ultimo messaggio inviato</p>
-                  </div>
-                  <span class="date">12:00</span>
-                </li> -->
               </ul>
             </aside>
             <div class="contact active">
               <img
                 class="contact-avatar"
-                src="./img/avatar_1.jpg"
+                :src="contacts[currentIndex].avatar"
                 alt="image"
               />
               <div class="body">
-                <p class="name">Michele</p>
+                <p class="name">{{ contacts[currentIndex].name }}</p>
                 <p class="last-message">Ultimo accesso oggi alle 12:00</p>
               </div>
               <ul class="icons">
@@ -140,11 +92,15 @@
             </div>
             <div class="chat">
               <ul class="chat-list">
-                <li class="message send">
-                  Ciao come stai?
+                <li
+                  class="message"
+                  :class="message.status === 'sent' ? 'sent' : 'received'"
+                  v-for="message in contacts[currentIndex].messages"
+                >
+                  {{ message.message }}
                   <span class="message-date">15:00</span>
                 </li>
-                <span class="message-date">15:00</span>
+                <!-- <span class="message-date">15:00</span>
                 <li class="message recevied">
                   Bene grazie! Stasera ci vediamo?
                   <span class="message-date">15:00</span>
@@ -160,7 +116,7 @@
                 <li class="message send">
                   Ok
                   <span class="message-date">15:00</span>
-                </li>
+                </li> -->
               </ul>
             </div>
             <div class="new-message">

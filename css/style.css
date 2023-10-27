@@ -219,11 +219,11 @@ aside {
     max-width: 300px;
 }
 
-.message.send {
+.message.sent {
     background-color: var(--send-message);
 }
 
-.message.recevied {
+.message.received {
     align-self: flex-start;
 }
 

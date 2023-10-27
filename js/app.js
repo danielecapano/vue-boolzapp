@@ -166,10 +166,15 @@ createApp({
           ],
         },
       ],
+      currentIndex: 0,
     };
   },
 
-  methods: {},
+  methods: {
+    selectContact(i) {
+      this.currentIndex = i;
+    },
+  },
 
   mounted() {
     console.log("VUE OK");
