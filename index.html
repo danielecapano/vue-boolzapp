@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolzapp</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section>
+        <div class="container">
+          <div class="grid">
+            <div class="user">
+              <img class="avatar" src="./img/avatar_io.jpg" alt="image" />
+              <p class="name">Sofia</p>
+              <ul class="icons">
+                <li class="icon-item">
+                  <i class="fa-solid fa-circle-notch"></i>
+                </li>
+                <li class="icon-item"><i class="fa-solid fa-message"></i></li>
+                <li class="icon-item">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </li>
+              </ul>
+            </div>
+            <aside>
+              <div class="notification">
+                <span class="bell"><i class="fa-solid fa-bell-slash"></i></span>
+                <div class="body">
+                  <p>Ricevi notifiche di nuovi messaggi</p>
+                  <a href="#">Attiva notifiche desktop</a>
+                </div>
+              </div>
+              <div class="search">
+                <input
+                  class="search-bar"
+                  type="text"
+                  placeholder="Cerca o inizia una nuova chat"
+                />
+                <span class="search-icon"
+                  ><i class="fa-solid fa-magnifying-glass"></i
+                ></span>
+              </div>
+              <ul class="contacts-list">
+                <li class="contact">
+                  <img
+                    class="contact-avatar"
+                    src="./img/avatar_1.jpg"
+                    alt="image"
+                  />
+                  <div class="body">
+                    <p class="name">Michele</p>
+                    <p class="last-message">Ultimo messaggio inviato</p>
+                  </div>
+                  <span class="date">12:00</span>
+                </li>
+
+                <li class="contact active">
+                  <img
+                    class="contact-avatar"
+                    src="./img/avatar_2.jpg"
+                    alt="image"
+                  />
+                  <div class="body">
+                    <p class="name">Michele</p>
+                    <p class="last-message">Ultimo messaggio inviato</p>
+                  </div>
+                  <span class="date">12:00</span>
+                </li>
+
+                <li class="contact">
+                  <img
+                    class="contact-avatar"
+                    src="./img/avatar_3.jpg"
+                    alt="image"
+                  />
+                  <div class="body">
+                    <p class="name">Michele</p>
+                    <p class="last-message">Ultimo messaggio inviato</p>
+                  </div>
+                  <span class="date">12:00</span>
+                </li>
+
+                <li class="contact">
+                  <img
+                    class="contact-avatar"
+                    src="./img/avatar_1.jpg"
+                    alt="image"
+                  />
+                  <div class="body">
+                    <p class="name">Michele</p>
+                    <p class="last-message">Ultimo messaggio inviato</p>
+                  </div>
+                  <span class="date">12:00</span>
+                </li>
+
+                <li class="contact">
+                  <img
+                    class="contact-avatar"
+                    src="./img/avatar_1.jpg"
+                    alt="image"
+                  />
+                  <div class="body">
+                    <p class="name">Michele</p>
+                    <p class="last-message">Ultimo messaggio inviato</p>
+                  </div>
+                  <span class="date">12:00</span>
+                </li>
+              </ul>
+            </aside>
+            <div class="contact active">
+              <img
+                class="contact-avatar"
+                src="./img/avatar_1.jpg"
+                alt="image"
+              />
+              <div class="body">
+                <p class="name">Michele</p>
+                <p class="last-message">Ultimo accesso oggi alle 12:00</p>
+              </div>
+              <ul class="icons">
+                <li class="icon-item">
+                  <i class="fa-solid fa-circle-notch"></i>
+                </li>
+                <li class="icon-item"><i class="fa-solid fa-message"></i></li>
+                <li class="icon-item">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </li>
+              </ul>
+            </div>
+            <div class="chat">
+              <ul class="chat-list">
+                <li class="message send">
+                  Ciao come stai?
+                  <span class="message-date">15:00</span>
+                </li>
+                <span class="message-date">15:00</span>
+                <li class="message recevied">
+                  Bene grazie! Stasera ci vediamo?
+                  <span class="message-date">15:00</span>
+                </li>
+                <li class="message send">
+                  Mi piacerebbe ma devo andare a fare la spesa
+                  <span class="message-date">15:00</span>
+                </li>
+                <li class="message recevied">
+                  Ciao bella
+                  <span class="message-date">15:00</span>
+                </li>
+                <li class="message send">
+                  Ok
+                  <span class="message-date">15:00</span>
+                </li>
+              </ul>
+            </div>
+            <div class="new-message">
+              <i class="fa-regular fa-face-smile"></i>
+              <input type="text" placeholder="Scrivi messaggio" />
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
