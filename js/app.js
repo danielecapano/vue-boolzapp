@@ -196,13 +196,44 @@ createApp({
 
       setTimeout(() => {
         const receivedMessage = {
-          date: DateTime.now().toLocaleString(DateTime.TIME_24_SIMPLE),
+          date: DateTime.now().toLocaleString(
+            DateTime.toFormat("dd/MM/yyyy HH:mm:ss")
+          ),
           message: "ok",
           status: "received",
         };
         this.contacts[index].messages.push(receivedMessage);
       }, 1000);
     },
+
+    deleteMessage(i) {
+      console.log(this.contacts[this.currentIndex].messages[i].message);
+      const 
+      this.contacts[this.currentIndex].messages.splice(i, 1, );
+
+      //   const index = this.currentIndex;
+      //   let indexMessage = 0;
+      //   const messages = this.contacts[index].messages;
+      //   for (i = 0; i < messages.length; i++) {
+      //     console.log(messages[indexMessage].message);
+      //   }
+    },
+
+    dateFormat(date) {
+      //   for (i = 0; i < this.contacts.length; i++) {
+      //     const messages = this.contacts[i].messages;
+      //     for (j = 0; j < messages.length; j++) {
+      //       let date = messages[j].date;
+
+      const dateFormatted = DateTime.fromFormat(
+        date,
+        "dd/MM/yyyy HH:mm:ss"
+      ).toLocaleString(DateTime.TIME_24_SIMPLE);
+
+      //   date = dateFormatted;
+      return dateFormatted;
+    },
+
     /*
     searchContacts() {
       for (i = 0; i > this.contacts.length; i++) {
@@ -226,26 +257,8 @@ createApp({
           .includes(this.searchInput.toLowerCase());
       });
     },
-
-    // dateFormat(date) {
-    // //   for (i = 0; i < this.contacts.length; i++) {
-    // //     const messages = this.contacts[i].messages;
-    // //     for (j = 0; j < messages.length; j++) {
-    // //       let date = messages[j].date;
-
-    //       const dateFormatted = DateTime.fromFormat(
-    //         date,
-    //         "dd/MM/yyyy HH:mm:ss"
-    //       ).toLocaleString(DateTime.TIME_24_SIMPLE);
-
-    //     //   date = dateFormatted;
-    //       return dateFormatted;
-
-    //   }
-    // },
-
-    mounted() {
-      console.log("VUE OK");
-    },
+  },
+  mounted() {
+    console.log("VUE OK");
   },
 }).mount("#app");

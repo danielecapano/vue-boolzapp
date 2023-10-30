@@ -79,8 +79,8 @@
                     </p>
                   </div>
                   <span class="date">
-                    {{ contact.messages[contact.messages.length - 1].date
-                    }}</span
+                    {{ dateFormat(contact.messages[contact.messages.length -
+                    1].date) }}</span
                   >
                 </li>
               </ul>
@@ -110,17 +110,21 @@
                 <li
                   class="message"
                   :class="message.status === 'sent' ? 'sent' : 'received'"
-                  v-for="message in currentContact.messages"
+                  v-for="(message, index) in currentContact.messages"
                 >
                   {{ message.message }}
-                  <span class="message-date">{{ message.date }}</span>
+                  <span class="message-date"
+                    >{{ dateFormat(message.date) }}</span
+                  >
                   <span class="arrow"
                     ><i class="fa-solid fa-chevron-down"></i
                   ></span>
                   <div class="delete-message">
                     <ul class="message-list">
                       <li class="message-item">Info messaggio</li>
-                      <li class="message-item">Cancella messaggio</li>
+                      <li class="message-item" @click="deleteMessage(index)">
+                        Cancella messaggio
+                      </li>
                     </ul>
                   </div>
                 </li>
