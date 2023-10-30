@@ -1,3 +1,5 @@
+const DateTime = luxon.DateTime;
+
 const { createApp } = Vue;
 
 createApp({
@@ -168,6 +170,7 @@ createApp({
       ],
       currentIndex: 0,
       textMessage: "",
+      searchInput: "",
     };
   },
 
@@ -176,32 +179,73 @@ createApp({
       this.currentIndex = i;
     },
     newMessage() {
+      const index = this.currentIndex;
       const message = {
-        date: "10/01/2020 15:30:55",
+        date: DateTime.now().toLocaleString(DateTime.TIME_24_SIMPLE),
         message: this.textMessage,
         status: "sent",
       };
 
       const receivedMessage = {
-        date: "10/01/2020 15:30:55",
+        date: DateTime.now().toLocaleString(DateTime.TIME_24_SIMPLE),
         message: this.textMessage,
         status: "received",
       };
-      this.contacts[this.currentIndex].messages.push(message);
+      this.contacts[index].messages.push(message);
       this.textMessage = "";
 
       setTimeout(() => {
         const receivedMessage = {
-          date: "10/01/2020 15:30:55",
+          date: DateTime.now().toLocaleString(DateTime.TIME_24_SIMPLE),
           message: "ok",
           status: "received",
         };
-        this.contacts[this.currentIndex].messages.push(receivedMessage);
+        this.contacts[index].messages.push(receivedMessage);
       }, 1000);
     },
+    /*
+    searchContacts() {
+      for (i = 0; i > this.contacts.length; i++) {
+        const name = this.contacts[i].name;
+        // const result = this.contact.name.match(this.searchInput);
+        console.log(this.contacts.length);
+      }
+    },
+    */
   },
 
-  mounted() {
-    console.log("VUE OK");
+  computed: {
+    currentContact() {
+      return this.contacts[this.currentIndex];
+    },
+
+    searchContacts() {
+      return this.contacts.filter((contact) => {
+        return contact.name
+          .toLowerCase()
+          .includes(this.searchInput.toLowerCase());
+      });
+    },
+
+    // dateFormat(date) {
+    // //   for (i = 0; i < this.contacts.length; i++) {
+    // //     const messages = this.contacts[i].messages;
+    // //     for (j = 0; j < messages.length; j++) {
+    // //       let date = messages[j].date;
+
+    //       const dateFormatted = DateTime.fromFormat(
+    //         date,
+    //         "dd/MM/yyyy HH:mm:ss"
+    //       ).toLocaleString(DateTime.TIME_24_SIMPLE);
+
+    //     //   date = dateFormatted;
+    //       return dateFormatted;
+
+    //   }
+    // },
+
+    mounted() {
+      console.log("VUE OK");
+    },
   },
 }).mount("#app");

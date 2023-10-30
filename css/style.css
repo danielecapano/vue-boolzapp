@@ -12,8 +12,10 @@
     --very-dark-gray: #6B7376;
     --text: #343434;
     --text-gray: #a5a5a5;
-    --send-message: #DCF8C6;
+    --send-message: rgb(220, 248, 198);
     --white: #FFF;
+
+    --linear-gradient: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(220, 248, 198, 1) 100%);
 
 }
 
@@ -51,7 +53,7 @@ body {
 }
 
 section {
-    padding: 100px 0;
+    padding: 6rem 1rem;
     height: 100vh;
 }
 
@@ -149,6 +151,8 @@ aside {
     border-radius: 0.25rem;
 }
 
+
+
 .search-icon {
     display: flex;
     align-items: center;
@@ -175,6 +179,10 @@ aside {
 
 .contact.active {
     background-color: var(--gray);
+}
+
+.contact.hidden {
+    display: none;
 }
 
 .contact:hover {
@@ -213,17 +221,29 @@ aside {
 }
 
 .message {
+    /* overflow: hidden; */
+    display: flex;
+    gap: 1rem;
     position: relative;
     background-color: #fff;
-    padding: 0.5rem 0.5rem 1.5rem;
+    padding: 0.5rem 0.5rem 0.5rem;
     font-size: 0.875rem;
     border-radius: 0.5rem;
     max-width: 300px;
     min-width: 35px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
 
 .message.sent {
     background-color: var(--send-message);
+}
+
+.message:hover.sent::before {
+    position: absolute;
+    content: '';
+    inset: 0;
+    border-radius: 0.5rem;
+    background: var(--linear-gradient);
 }
 
 .message.received {
@@ -232,10 +252,60 @@ aside {
 
 .message-date {
     font-size: 0.625rem;
-    position: absolute;
+    align-self: flex-end;
+    /* position: absolute;
     bottom: 0.25rem;
-    right: 0.25rem;
+    right: 0.25rem; */
     color: var(--text-gray);
+}
+
+.arrow {
+    display: none;
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.message:hover.sent .arrow {
+    display: block;
+}
+
+.message .delete-message {
+    display: none;
+    width: max-content;
+    background-color: var(--white);
+    position: absolute;
+    right: 0.5rem;
+    top: calc(100% - 0.5rem);
+    padding: 1rem 1.5rem;
+    z-index: 10;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.30);
+}
+
+.message:hover.sent .delete-message {
+    display: block;
+}
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message-item {
+    cursor: pointer;
+    color: var(--text-gray);
+}
+
+.message-item {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.message-item:hover {
+    background-color: var(--gray);
 }
 
 .new-message {
