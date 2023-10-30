@@ -208,8 +208,8 @@ createApp({
 
     deleteMessage(i) {
       console.log(this.contacts[this.currentIndex].messages[i].message);
-      const 
-      this.contacts[this.currentIndex].messages.splice(i, 1, );
+
+      this.contacts[this.currentIndex].messages.splice(i, 1);
 
       //   const index = this.currentIndex;
       //   let indexMessage = 0;
