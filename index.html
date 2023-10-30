@@ -109,7 +109,12 @@
               <ul class="chat-list">
                 <li
                   class="message"
-                  :class="message.status === 'sent' ? 'sent' : 'received'"
+                  :class="{
+                    'sent': message.status === 'sent',
+                    'received': message.status === 'received',
+                    'delete': message.status === 'delete',
+
+                  }"
                   v-for="(message, index) in currentContact.messages"
                 >
                   {{ message.message }}

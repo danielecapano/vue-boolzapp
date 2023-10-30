@@ -181,13 +181,13 @@ createApp({
     newMessage() {
       const index = this.currentIndex;
       const message = {
-        date: DateTime.now().toLocaleString(DateTime.TIME_24_SIMPLE),
+        date: DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss"),
         message: this.textMessage,
         status: "sent",
       };
 
       const receivedMessage = {
-        date: DateTime.now().toLocaleString(DateTime.TIME_24_SIMPLE),
+        date: DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss"),
         message: this.textMessage,
         status: "received",
       };
@@ -196,9 +196,7 @@ createApp({
 
       setTimeout(() => {
         const receivedMessage = {
-          date: DateTime.now().toLocaleString(
-            DateTime.toFormat("dd/MM/yyyy HH:mm:ss")
-          ),
+          date: DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss"),
           message: "ok",
           status: "received",
         };
@@ -208,8 +206,12 @@ createApp({
 
     deleteMessage(i) {
       console.log(this.contacts[this.currentIndex].messages[i].message);
-
-      this.contacts[this.currentIndex].messages.splice(i, 1);
+      const textMessageDelete = {
+        date: DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss"),
+        message: "Hai eliminato questo messaggio",
+        status: "delete",
+      };
+      this.contacts[this.currentIndex].messages.splice(i, 1, textMessageDelete);
 
       //   const index = this.currentIndex;
       //   let indexMessage = 0;

@@ -250,6 +250,11 @@ aside {
     align-self: flex-start;
 }
 
+.message.delete {
+    font-style: italic;
+    color: var(--text-gray);
+}
+
 .message-date {
     font-size: 0.625rem;
     align-self: flex-end;
